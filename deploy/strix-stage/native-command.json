@@ -1,0 +1,5 @@
+[
+    "/usr/local/emhttp/plugins/dynamix.docker.manager/scripts/docker create --name='creator-studio' --net='host' --pids-limit 2048 -e TZ=\"America/Los_Angeles\" -e HOST_OS=\"Unraid\" -e HOST_HOSTNAME=\"Strix\" -e HOST_CONTAINERNAME=\"creator-studio\" -e 'STUDIO_EXTERNAL_ORIGIN'='https://strix.tail4532cc.ts.net:9443' -e 'PORT'='4180' -l net.unraid.docker.managed=dockerman -l net.unraid.docker.webui='https://strix.tail4532cc.ts.net:9443' -v '/mnt/fastssd/AppData/creator-studio/data':'/data':'rw' -v '/mnt/fastssd/AppData/creator-studio/secrets/password':'/run/secrets/studio_password':'ro' --read-only --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=128 --memory=512m --cpus=2 --user=1000:1000 --tmpfs /tmp:rw,noexec,nosuid,size=16m 'creator-studio:review-stage' ",
+    "creator-studio",
+    "creator-studio:review-stage"
+]

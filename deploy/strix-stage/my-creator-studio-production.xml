@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Container version="2">
+<Name>creator-studio</Name>
+<Repository>sha256:78b91928ce6ffd265698feff7c36196b2053e004a79f4c9e50433f3c90c83b28</Repository>
+<Registry/>
+<Network>host</Network>
+<MyIP/>
+<Shell>sh</Shell>
+<Privileged>false</Privileged>
+<Support/>
+<Project/>
+<Overview>Private single-owner Creator Studio. Local custom application, not a Community Applications listing. Manual handoffs only; no automated publishing or paid operations.</Overview>
+<Category>Productivity:</Category>
+<WebUI>https://strix.tail4532cc.ts.net:9443</WebUI>
+<Icon/>
+<ExtraParams>--read-only --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=128 --memory=512m --cpus=2 --user=1000:1000 --tmpfs /tmp:rw,noexec,nosuid,size=16m</ExtraParams>
+<PostArgs/>
+<TailscaleEnabled/>
+<Config Name="AppData" Target="/data" Default="" Mode="rw" Description="Private persistent database, uploads and session secret" Type="Path" Display="always" Required="true" Mask="false">/mnt/fastssd/AppData/creator-studio/data</Config>
+<Config Name="Password file" Target="/run/secrets/studio_password" Default="" Mode="ro" Description="Mode 0600 owned by UID 1000; never an environment secret" Type="Path" Display="always" Required="true" Mask="false">/mnt/fastssd/AppData/creator-studio/secrets/password</Config>
+<Config Name="Exact external origin" Target="STUDIO_EXTERNAL_ORIGIN" Default="" Mode="" Description="Strict HTTPS Host and Origin" Type="Variable" Display="always" Required="true" Mask="false">https://strix.tail4532cc.ts.net:9443</Config>
+<Config Name="Loopback backend port" Target="PORT" Default="4180" Mode="" Description="Application binds only 127.0.0.1" Type="Variable" Display="always" Required="true" Mask="false">4180</Config>
+</Container>

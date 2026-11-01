@@ -1,0 +1,15 @@
+{
+  admin off
+  auto_https disable_redirects
+}
+{$STUDIO_EXTERNAL_ORIGIN} {
+  bind {$STUDIO_PRIVATE_IP}
+  tls internal
+  reverse_proxy 127.0.0.1:4180 {
+    # Keep the original Host and Origin; app validates both exactly.
+    header_up -Forwarded
+    header_up -X-Forwarded-Host
+    header_up -X-Forwarded-Proto
+    header_up -X-Forwarded-For
+  }
+}

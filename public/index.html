@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Creator Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to workspace</a>
+    <aside class="rail">
+      <a class="brand" href="#studio"
+        ><span class="mark">cs</span><span>Creator<br />Studio</span></a
+      >
+      <p class="rail-label">PRIVATE WORKSPACE</p>
+      <nav aria-label="Workspace">
+        <a href="#studio">Studio overview</a
+        ><a href="#actions">Needs you <span id="pending-count"></span></a
+        ><a href="#characters">Characters</a><a href="#projects">Production</a
+        ><a href="#assets">Asset library</a><a href="#jobs">Agent handoffs</a
+        ><a href="#services">Services & tools</a
+        ><a href="#audit">Activity journal</a>
+      </nav>
+      <div class="rail-foot">
+        <span class="dot"></span> Local, private storage
+        <p>No integrations connected</p>
+        <button id="logout" class="quiet">Sign out</button>
+      </div>
+    </aside>
+    <main id="main" tabindex="-1">
+      <header class="topline">
+        <span>YOUR STUDIO / <span id="breadcrumb">OVERVIEW</span></span
+        ><span class="private-tag">Private preview</span
+        ><button id="logout-mobile" class="secondary mobile-only" type="button">
+          Sign out
+        </button>
+      </header>
+      <div id="notice" role="status" aria-live="polite"></div>
+      <div id="view"><p>Loading your workspace…</p></div>
+      <footer>
+        Draft locally. Review deliberately. Nothing here publishes or spends
+        automatically.
+      </footer>
+    </main>
+  </body>
+</html>

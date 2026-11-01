@@ -1,0 +1,19 @@
+{
+  "browser": "Chromium",
+  "viewport": "390x844 and 1440x1000",
+  "passed": [
+    "login",
+    "onboarding",
+    "character create",
+    "XSS rendered as text",
+    "project create/edit",
+    "review changes/approve",
+    "upload and version",
+    "manual job completion and scope reopening clears evidence",
+    "explicit integration capability labels",
+    "service labels",
+    "mobile overflow all sections"
+  ],
+  "page_errors": [],
+  "screenshots": "/home/helix/.hermes-minimal/workspace/creator-studio/verification"
+}

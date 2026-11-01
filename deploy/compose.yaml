@@ -1,0 +1,32 @@
+# Template only. Linux host networking retains an inaccessible remote backend.
+# Set absolute private paths in the operator environment; no credentials in .env.
+services:
+  studio:
+    build:
+      context: ..
+    network_mode: host
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "4180"
+      STUDIO_DATA: /data
+      STUDIO_PASSWORD_FILE: /run/secrets/studio_password
+      STUDIO_EXTERNAL_ORIGIN: ${STUDIO_EXTERNAL_ORIGIN:?exact private HTTPS origin required}
+    volumes:
+      - ${STUDIO_DATA_DIR:?absolute private data path required}:/data
+      - ${STUDIO_PASSWORD_PATH:?absolute private password file required}:/run/secrets/studio_password:ro
+  proxy:
+    image: caddy:2
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      STUDIO_EXTERNAL_ORIGIN: ${STUDIO_EXTERNAL_ORIGIN:?exact private HTTPS origin required}
+      STUDIO_PRIVATE_IP: ${STUDIO_PRIVATE_IP:?private Tailscale IPv4 required}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ${STUDIO_PROXY_DATA:?absolute private proxy data path required}:/data
+      - ${STUDIO_PROXY_CONFIG:?absolute private proxy config path required}:/config

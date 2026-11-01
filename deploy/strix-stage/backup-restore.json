@@ -1,0 +1,14 @@
+{
+  "source": "/home/helix/.hermes-minimal/workspace/creator-studio/data/studio.sqlite",
+  "counts": {
+    "records": 3,
+    "audit": 0,
+    "sessions": 0,
+    "meta": 1
+  },
+  "restored_counts_equal": true,
+  "integrity": "ok",
+  "private_backup": "/home/helix/.hermes-minimal/cache/scratch/creator-studio-deploy-backup/studio-backup.sqlite",
+  "private_restore": "/home/helix/.hermes-minimal/cache/scratch/creator-studio-deploy-backup/studio-restored.sqlite",
+  "scope": "SQLite only, not full appdata or authenticated restore; release drill still needed"
+}

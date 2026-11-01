@@ -1,0 +1,35 @@
+{
+  "trusted_TLS_login": 200,
+  "host_evil.test": 403,
+  "host_127.0.0.1:4180": 403,
+  "initial_counts": {
+    "characters": 0,
+    "projects": 0,
+    "actions": 0,
+    "assets": 0,
+    "jobs": 0,
+    "services": 3
+  },
+  "full_backup_isolated_restore": {
+    "passed": true,
+    "counts": {
+      "characters": 1,
+      "projects": 1,
+      "actions": 1,
+      "assets": 2,
+      "jobs": 1,
+      "services": 3
+    },
+    "path": "/home/helix/.hermes-minimal/cache/scratch/studio-production-restore-w84bgk15",
+    "login": true,
+    "two_upload_versions": true,
+    "integrity": "ok",
+    "production_replaced": false
+  },
+  "CRUD_versions_approval_handoff_reopen": true,
+  "restart_session_records_files_persist": true,
+  "temporary_records_removed_audit_preserved": true,
+  "secure_cookie": true,
+  "authenticated_HTML_and_JS": true,
+  "postdeploy_authenticated_browser": false
+}

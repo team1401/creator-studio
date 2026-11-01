@@ -1,0 +1,14 @@
+**
+!Dockerfile
+!package.json
+!server.mjs
+!public/
+!public/**
+# Defense in depth: only runtime sources belong in the image.
+**/.env*
+**/*password*
+**/*secret*
+**/*.sqlite*
+**/*.db*
+**/*.pem
+**/*.key

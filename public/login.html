@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Private sign in · Creator Studio</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/login.js" defer></script>
+  </head>
+  <body class="login-page">
+    <main class="login-panel">
+      <span class="mark">cs</span>
+      <p class="eyebrow">CREATOR STUDIO</p>
+      <h1>A place for the work.</h1>
+      <p>
+        Your characters, drafts and decisions. A private studio, ready when you
+        are.
+      </p>
+      <form id="login">
+        <label for="password">Studio password</label
+        ><input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+        /><button type="submit">Open your studio</button>
+        <p id="error" role="alert"></p>
+      </form>
+      <p class="muted">
+        Use your privately provisioned password. No accounts, external tracking
+        or public sharing.
+      </p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "TCP": {
+    "8443": {
+      "HTTPS": true
+    },
+    "9443": {
+      "HTTPS": true
+    }
+  },
+  "Web": {
+    "strix.tail4532cc.ts.net:8443": {
+      "Handlers": {
+        "/": {
+          "Proxy": "http://localhost:18789"
+        }
+      }
+    },
+    "strix.tail4532cc.ts.net:9443": {
+      "Handlers": {
+        "/": {
+          "Proxy": "http://127.0.0.1:4180"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+✔ private studio real HTTP acceptance and process restart (772.491974ms)
+✔ completed material scope edits reopen and archive evidence; no-op edits preserve completion (425.203264ms)
+✔ real restart preserves normal sessions and password rotation revokes old cookies (529.032577ms)
+✔ explicit HTTPS origin via loopback TLS proxy, exact Host/Origin and Secure cookie (483.045044ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1483.850883

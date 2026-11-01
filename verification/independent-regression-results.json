@@ -1,0 +1,36 @@
+{
+  "host evil.example": 403,
+  "host 192.168.1.5:4180": 403,
+  "host localhost:44375": 403,
+  "cookie_flags": {
+    "HttpOnly": true,
+    "SameSite=Strict": true,
+    "Secure": false
+  },
+  "origin null": 403,
+  "origin https://evil.example": 403,
+  "origin http://127.0.0.1:1": 403,
+  "origin https://127.0.0.1:44375": 403,
+  "anonymous /api/session": 401,
+  "anonymous /api/audit": 401,
+  "anonymous /app.js": 401,
+  "anonymous /data/password": 401,
+  "anonymous /api/assets": 401,
+  "bad_csrf": 403,
+  "mobile_320_DOM": {
+    "Studio overview": "Integration capabilities\n\nAutomatic execution: disabled. No dashboard executor is connected.\n\nArgus: not connected.\n\nAgent Zero API: send/poll tested in a separate integration spike (reported evidence), not connected to this dashboard. Not a live health check.\n\nDesktop display :120: currently unavailable / not verified; repair pending. A separate repair report is required before recording a timestamped manual verification.\n\nTHE WORKSPACE\n\nMake room for the next good idea.\n\nYour work, its next step, and the decisions only you can make.\n\nSTART WITH ONE CHARACTER\n\nWho are we creating with?\n\nChoose your first character. Define their reference, voice and boundaries. There is no preset niche and nothing is published.\n\nChoose your first character\nOn the workbench\nAll production\nNo drafts yet.\n\nYour first brief will live here. No examples are mixed into your real work.\n\nA deliberate workflow\n01\nDefine the character\n\nReference, voice, disclosure and boundaries.\n\nOpen define the character\n02\nMake an unpublished draft\n\nBrief, script, images, animation and edit.\n\nOpen make an unpublished draft\n03\nReview, then decide\n\nHuman approval stays separate from publishing.\n\nOpen review, then decide\nAgent boundary\nPrepare a handoff\n\nNo agent is running from this app. Handoffs are persistent manual instructions. Generation, publishing, purchases and storefront deployments require separate approval.",
+    "Agent handoffs": "Integration capabilities\n\nAutomatic execution: disabled. No dashboard executor is connected.\n\nArgus: not connected.\n\nAgent Zero API: send/poll tested in a separate integration spike (reported evidence), not connected to this dashboard. Not a live health check.\n\nDesktop display :120: currently unavailable / not verified; repair pending. A separate repair report is required before recording a timestamped manual verification.\n\nTHE WORKSPACE\n\nAgent handoffs\n\nPrepare the next task. An agent is not connected to this studio yet.\n\n+ New handoff\nYour first handoff starts here.\n\nWrite a bounded handoff for manual use in Agent Zero. This does not send or run a task.\n\nCreate handoff",
+    "Services & tools": "Integration capabilities\n\nAutomatic execution: disabled. No dashboard executor is connected.\n\nArgus: not connected.\n\nAgent Zero API: send/poll tested in a separate integration spike (reported evidence), not connected to this dashboard. Not a live health check.\n\nDesktop display :120: currently unavailable / not verified; repair pending. A separate repair report is required before recording a timestamped manual verification.\n\nTHE WORKSPACE\n\nServices & tools\n\nUseful destinations, without pretending an account is connected.\n\n+ New service\nAgent Zero \u00b7 2\nSaved 10/22/2026\nNot connected\n\nHistorical verified link: agent-zero-pilot/REPORT.md. Tailscale required. Not live-health checked by this app; no API connected.\n\nConnection: not integrated. Account status is a manual report, not a live check.\n\nOpen Agent Zero \u00b7 2 \u2197\nEdit\nDelete\nAgent Zero \u00b7 1\nSaved 10/22/2026\nNot connected\n\nHistorical verified link: agent-zero-pilot/REPORT.md. Tailscale required. Not live-health checked by this app; no API connected.\n\nConnection: not integrated. Account status is a manual report, not a live check.\n\nOpen Agent Zero \u00b7 1 \u2197\nEdit\nDelete\nHiggsfield\nSaved 10/22/2026\nNot connected\n\nDomain corroborated in discovery video description. No account or API connected. Paid generation needs separate approval.\n\nConnection: not integrated. Account status is a manual report, not a live check.\n\nOpen Higgsfield \u2197\nEdit\nDelete",
+    "Needs you": "THE WORKSPACE\n\nNeeds you\n\nDecisions that need your judgment, with a reason and a next step.\n\n+ New action\nYour first action starts here.\n\nAdd a decision when a draft needs human judgment. Include why, exact instructions and what happens next.\n\nCreate action"
+  },
+  "completion_after_changed_instructions": {
+    "title": "TEST ONLY completion scope",
+    "instructions": "Review different draft B",
+    "status": "awaiting_manual",
+    "output_notes": "",
+    "id": "ebdd247b-d985-4dd4-94a4-c2461db9d760",
+    "created": "2026-10-22T16:22:41.139Z",
+    "updated": "2026-10-22T16:22:41.165Z"
+  },
+  "old_session_after_password_rotation": 401
+}

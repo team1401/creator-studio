@@ -1,0 +1,16 @@
+{
+  "url": "https://strix.tail4532cc.ts.net:9443",
+  "image": "sha256:78b91928ce6ffd265698feff7c36196b2053e004a79f4c9e50433f3c90c83b28",
+  "container_id": "4ae7c800b1b9b153dd195b488063522f83d9df1cc6dbbb5d656591942424f116",
+  "native_managed": true,
+  "native_cache_discovered": true,
+  "autostart": true,
+  "unrelated_containers_unchanged": 19,
+  "unrelated_templates_unchanged": true,
+  "existing_serve_8443_unchanged": true,
+  "funnel": false,
+  "backend_remote_denied": true,
+  "runtime_source_hashes_match": true,
+  "source_manifest_sha256": "f04390bf016ce8807a763becf83f0e881dad78c00fe203bda45bffffb03d7ffc",
+  "state": "running"
+}
