@@ -1,5 +1,5 @@
 {
-  "url": "https://strix.tail4532cc.ts.net:9443",
+  "url": "https://<tailscale-host>:9443",
   "image": "sha256:78b91928ce6ffd265698feff7c36196b2053e004a79f4c9e50433f3c90c83b28",
   "container_id": "4ae7c800b1b9b153dd195b488063522f83d9df1cc6dbbb5d656591942424f116",
   "native_managed": true,

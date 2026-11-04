@@ -15,7 +15,7 @@ assert any(x['id']==col and x['name']=='Helix' for x in json.loads(run([bw,'list
 existing=json.loads(run([bw,'list','items','--search','CreatorStudio'],env=env,stdin=subprocess.DEVNULL))
 assert len(existing)<=1
 password=existing[0]['login']['password'] if existing else secrets.token_urlsafe(48)
-item={'type':1,'name':'CreatorStudio','organizationId':org,'collectionIds':[col],'notes':'Private Creator Studio on Strix. Password-only login; no username is required. Native Unraid managed application.','login':{'username':'','password':password,'uris':[{'match':0,'uri':'https://strix.tail4532cc.ts.net:9443'}]}}
+item={'type':1,'name':'CreatorStudio','organizationId':org,'collectionIds':[col],'notes':'Private Creator Studio on Strix. Password-only login; no username is required. Native Unraid managed application.','login':{'username':'','password':password,'uris':[{'match':0,'uri':'https://<tailscale-host>:9443'}]}}
 saved=existing[0] if existing else json.loads(run([bw,'create','item'],env=env,input=base64.b64encode(json.dumps(item).encode()).decode()))
 actual=json.loads(run([bw,'get','item',saved['id']],env=env,stdin=subprocess.DEVNULL))
 assert actual['organizationId']==org and col in actual['collectionIds'] and actual['login']['uris']==item['login']['uris']

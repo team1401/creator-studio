@@ -1,6 +1,6 @@
 # CreatorStudio production — deployed and verified
 
-URL: **https://strix.tail4532cc.ts.net:9443** (private tailnet).
+URL: **https://<tailscale-host>:9443** (private tailnet).
 
 Credential: shared Bitwarden **Airstream AI / Helix → CreatorStudio**, item `70c0aed5-38ac-4f6e-ac6c-b4eb01109e62`. Password-only application; no username required. Exact HTTPS URI saved. Exact item read back and password hash compared privately with the provisioned file. No secret values in this report.
 

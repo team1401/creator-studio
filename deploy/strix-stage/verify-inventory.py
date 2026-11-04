@@ -1,7 +1,7 @@
 import json,subprocess,hashlib,socket
 from pathlib import Path
 b=Path(__file__).parent
-def ssh(c):return subprocess.check_output(['ssh','root@100.108.186.69',c],text=True)
+def ssh(c):return subprocess.check_output(['ssh','root@<agent-zero-host>',c],text=True)
 before=json.loads(ssh('cat /mnt/fastssd/AppData/creator-studio-stage/production-before/containers.json'))
 after=json.loads(ssh('docker inspect $(docker ps -aq)'))
 old={v['Name']:v for v in before};new={v['Name']:v for v in after}
@@ -23,11 +23,11 @@ source=json.loads((b/'production-source-manifest.json').read_text())
 for f in ['server.mjs','public/app.js']:
  h=ssh('docker exec creator-studio sha256sum /app/'+f).split()[0];assert h==source[f]
 try:
- socket.create_connection(('100.108.186.69',4180),timeout=3).close();raise AssertionError('backend exposed')
+ socket.create_connection(('<agent-zero-host>',4180),timeout=3).close();raise AssertionError('backend exposed')
 except (ConnectionRefusedError,TimeoutError):pass
 container=new['/creator-studio'];assert container['Config']['Labels']['net.unraid.docker.managed']=='dockerman'
 cache=json.loads(ssh('cat /usr/local/emhttp/state/plugins/dynamix.docker.manager/docker.json'))
 # Validate native cache discovery without dumping unrelated metadata.
 assert 'creator-studio' in json.dumps(cache)
-result={'url':'https://strix.tail4532cc.ts.net:9443','image':container['Image'],'container_id':container['Id'],'native_managed':True,'native_cache_discovered':True,'autostart':True,'unrelated_containers_unchanged':len(old),'unrelated_templates_unchanged':True,'existing_serve_8443_unchanged':True,'funnel':False,'backend_remote_denied':True,'runtime_source_hashes_match':True,'source_manifest_sha256':hashlib.sha256((b/'production-source-manifest.json').read_bytes()).hexdigest(),'state':container['State']['Status']}
+result={'url':'https://<tailscale-host>:9443','image':container['Image'],'container_id':container['Id'],'native_managed':True,'native_cache_discovered':True,'autostart':True,'unrelated_containers_unchanged':len(old),'unrelated_templates_unchanged':True,'existing_serve_8443_unchanged':True,'funnel':False,'backend_remote_denied':True,'runtime_source_hashes_match':True,'source_manifest_sha256':hashlib.sha256((b/'production-source-manifest.json').read_bytes()).hexdigest(),'state':container['State']['Status']}
 (b/'production-inventory.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

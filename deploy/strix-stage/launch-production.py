@@ -1,7 +1,7 @@
 import subprocess,json,hashlib
 from pathlib import Path
 base=Path(__file__).parent
-host='root@100.108.186.69'
+host='root@<agent-zero-host>'
 def ssh(cmd):return subprocess.check_output(['ssh',host,cmd],text=True)
 # Capture full unrelated profiles privately; public evidence only uses hashes.
 private='/mnt/fastssd/AppData/creator-studio-stage/production-before'
@@ -26,6 +26,6 @@ print(ssh('tailscale serve --bg --https=9443 http://127.0.0.1:4180'))
 after=json.loads(ssh('tailscale serve status --json'))
 for k,v in serve.items():
  for sk,sv in v.items():assert after[k][sk]==sv
-assert after['Web']['strix.tail4532cc.ts.net:9443']['Handlers']['/']['Proxy']=='http://127.0.0.1:4180'
+assert after['Web']['<tailscale-host>:9443']['Handlers']['/']['Proxy']=='http://127.0.0.1:4180'
 (base/'production-serve-after.json').write_text(json.dumps(after,indent=2))
 print('Native launch and additive Serve verified')

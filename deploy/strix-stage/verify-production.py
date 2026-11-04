@@ -1,15 +1,15 @@
 import subprocess,json,time,base64,tempfile,tarfile,os,hashlib,sqlite3
 from pathlib import Path
 import requests
-B='https://strix.tail4532cc.ts.net:9443';H='root@100.108.186.69';base=Path(__file__).parent; evidence={}
+B='https://<tailscale-host>:9443';H='root@<agent-zero-host>';base=Path(__file__).parent; evidence={}
 def ssh(c):return subprocess.check_output(['ssh',H,c])
 pw=Path('/home/helix/.hermes-minimal/cache/scratch/.studio-production-password').read_text()
 s=requests.Session();s.headers['Origin']=B
 r=s.get(B+'/login');assert r.status_code==200;evidence['trusted_TLS_login']=r.status_code
 assert s.get(B+'/api/characters').status_code==401
 for host in ['evil.test','127.0.0.1:4180']:
- r=requests.get(B+'/api/session',headers={'Host':host,'X-Forwarded-Host':'strix.tail4532cc.ts.net:9443','Forwarded':'host=strix.tail4532cc.ts.net:9443'},timeout=10);assert r.status_code in [400,403,404,421];evidence['host_'+host]=r.status_code
-for origin in ['null','https://evil.test','https://strix.tail4532cc.ts.net:8443','http://strix.tail4532cc.ts.net:9443']:
+ r=requests.get(B+'/api/session',headers={'Host':host,'X-Forwarded-Host':'<tailscale-host>:9443','Forwarded':'host=<tailscale-host>:9443'},timeout=10);assert r.status_code in [400,403,404,421];evidence['host_'+host]=r.status_code
+for origin in ['null','https://evil.test','https://<tailscale-host>:8443','http://<tailscale-host>:9443']:
  r=s.post(B+'/api/login',json={'password':'invalid'},headers={'Origin':origin});assert r.status_code==403
 r=s.post(B+'/api/login',json={'password':pw});assert r.status_code==200
 cookie=r.headers['Set-Cookie'];assert all(x in cookie for x in ['Secure','HttpOnly','SameSite=Strict']);s.headers['X-CSRF-Token']=r.json()['csrf']
@@ -54,7 +54,7 @@ proc=subprocess.Popen(['node','server.mjs'],env=env,stdout=subprocess.PIPE,stder
 try:
  import re
  line=proc.stdout.readline();local=re.search(r'http://127.0.0.1:\d+',line).group(0)
- rs=requests.Session();rs.headers.update({'Host':'strix.tail4532cc.ts.net:9443','Origin':B})
+ rs=requests.Session();rs.headers.update({'Host':'<tailscale-host>:9443','Origin':B})
  lr=rs.post(local+'/api/login',json={'password':pw});assert lr.status_code==200
  rs.headers['Cookie']=lr.headers['Set-Cookie'].split(';')[0]
  assert {k:len(rs.get(local+'/api/'+k).json()) for k in kinds}==counts

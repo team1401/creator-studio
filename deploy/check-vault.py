@@ -14,7 +14,7 @@ for typ in ['organizations','collections']:
 c=sqlite3.connect('/home/helix/.hermes-minimal/state.db')
 t=c.execute("select content from messages where id=104372 and session_id='20260921_065527_ebd12a' and role='user'").fetchone()[0]
 m=re.fullmatch(r'The password for that is (\S+)\s*',t,re.I);assert m
-r=subprocess.run(['ssh','-o','BatchMode=yes','helix@100.117.95.108','/opt/homebrew/bin/python3 -c '+shlex.quote(remote)],input=json.dumps({'keychain_password':m[1]}),capture_output=True,text=True,timeout=120)
+r=subprocess.run(['ssh','-o','BatchMode=yes','helix@<mac-host>','/opt/homebrew/bin/python3 -c '+shlex.quote(remote)],input=json.dumps({'keychain_password':m[1]}),capture_output=True,text=True,timeout=120)
 assert r.returncode==0, 'Vault readiness failed (secret output suppressed)'
 pathlib.Path('creator-studio/deploy/strix-stage/vault-readiness.jsonl').write_text(r.stdout)
 print(r.stdout)

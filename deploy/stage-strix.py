@@ -3,7 +3,7 @@ import pathlib, subprocess, tarfile, io, json, hashlib
 root=pathlib.Path(__file__).resolve().parents[1]
 out=root/'deploy'/'strix-stage'; out.mkdir(exist_ok=True)
 remote='/mnt/fastssd/AppData/creator-studio-stage'
-ssh=['ssh','-o','BatchMode=yes','root@100.108.186.69']
+ssh=['ssh','-o','BatchMode=yes','root@<agent-zero-host>']
 def run(cmd,**kw): return subprocess.run(ssh+[cmd],check=True,capture_output=True,**kw).stdout
 files=[root/'Dockerfile',root/'package.json',root/'server.mjs',*sorted((root/'public').rglob('*'))]
 files=[p for p in files if p.is_file()]

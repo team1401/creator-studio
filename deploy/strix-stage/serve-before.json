@@ -5,7 +5,7 @@
     }
   },
   "Web": {
-    "strix.tail4532cc.ts.net:8443": {
+    "<tailscale-host>:8443": {
       "Handlers": {
         "/": {
           "Proxy": "http://localhost:18789"
